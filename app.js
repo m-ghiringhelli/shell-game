@@ -43,16 +43,21 @@ function handleShell(guess, correctShell) {
     if (guess === correctShell) {
 		// use user input to update state 
         correctGuesses++;
-		// update DOM to reflect the new state
-        ballOne.classList.add('reveal');
         winsEl.textContent = correctGuesses;
-
     } else {
 		// use user input to update state 
         wrongGuesses++;
 		// update DOM to reflect the new state
         lossesEl.textContent = wrongGuesses;
 
+    }
+    // update DOM to reflect the new state
+    if (correctShell === 1) {
+        ballOne.classList.add('reveal');           
+    } else if (correctShell === 2) {
+        ballTwo.classList.add('reveal');
+    } else {
+        ballThree.classList.add('reveal');
     }
 	//increment guesses
     totalEl.textContent = correctGuesses + wrongGuesses;
