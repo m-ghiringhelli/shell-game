@@ -3,7 +3,6 @@ const ballOne = document.getElementById('ball-1');
 const ballTwo = document.getElementById('ball-2');
 const ballThree = document.getElementById('ball-3');
 
-
 const buttonOne = document.getElementById('button-1');
 const buttonTwo = document.getElementById('button-2');
 const buttonThree = document.getElementById('button-3');
@@ -13,6 +12,8 @@ const lossesEl = document.getElementById('losses');
 const messageEl = document.getElementById('trash-talk');
 const totalEl = document.getElementById('total');
 
+const container = document.getElementById('shells-container');
+
 // let state
 let correctGuesses = 0;
 let wrongGuesses = 0;
@@ -21,16 +22,19 @@ let wrongGuesses = 0;
 buttonOne.addEventListener('click', ()=> {
     const whichShell = Math.ceil(Math.random() * 3);
     handleShell(1, whichShell);
+    container.style.setProperty('margin-top', '0px');
 });
 
 buttonTwo.addEventListener('click', ()=> {
     const whichShell = Math.ceil(Math.random() * 3);
     handleShell(2, whichShell);
+    container.style.setProperty('margin-top', '0px');
 });
 
 buttonThree.addEventListener('click', ()=> {
     const whichShell = Math.ceil(Math.random() * 3);
     handleShell(3, whichShell);
+    container.style.setProperty('margin-top', '0px');
 });
 
   // get user input
@@ -43,6 +47,7 @@ function handleShell(guess, correctShell) {
     if (guess === correctShell) {
 		// use user input to update state 
         correctGuesses++;
+        // update DOM to reflect the new state
         winsEl.textContent = correctGuesses;
     } else {
 		// use user input to update state 
@@ -64,8 +69,8 @@ function handleShell(guess, correctShell) {
 }
 
 // to-do:
-// -hide ball
-// -show ball on guess
+// -hide ball CHECK
+// -show ball on guess CHECK
 // -change trash-talk to reflect win/loss
 
 
