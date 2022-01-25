@@ -17,6 +17,7 @@ const container = document.getElementById('shells-container');
 // let state
 let correctGuesses = 0;
 let wrongGuesses = 0;
+let correct = false;
 
 // set event listeners
 buttonOne.addEventListener('click', ()=> {
@@ -44,22 +45,24 @@ function reset() {
 }
 
 function handleShell(guess, correctShell) {
-    //reset ball state
-    reset();
-
     //check if guessed shell is correct
     if (guess === correctShell) {
         // use user input to update state 
+        correct = true;
         correctGuesses++;
     } else {
         // use user input to update state 
+        correct = false;
         wrongGuesses++;
     }
-    displayResults(guess, correctShell);
+    displayResults(correct, correctShell);
 }
 
-function displayResults(guess, correctShell) {
-    if (guess === correctShell) {
+function displayResults(correct, correctShell) {
+    //reset ball state
+    reset();
+
+    if (correct) {
         // update DOM to reflect the new state
         winsEl.textContent = correctGuesses;
         messageEl.textContent = 'You got lucky.';
