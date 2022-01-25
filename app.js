@@ -37,21 +37,28 @@ buttonThree.addEventListener('click', ()=> {
 function handleShell(num, correctShell) {
 	//reset ball state
 
-	//increment guesses
-	totalEl.textConent = correctGuesses + wrongGuesses;
-
 	//check if guessed shell is correct
-	if (num === correctShell) {
-		correctGuesses++;
-		console.log(correctGuesses);
-	} else {
-		wrongGuesses++;
-		console.log(wrongGuesses);
-	}
-}
-  // use user input to update state 
-  // update DOM to reflect the new state
+    if (num === correctShell) {
+		// use user input to update state 
+        correctGuesses++;
+		// update DOM to reflect the new state
+        winsEl.textContent = correctGuesses;
 
+    } else {
+		// use user input to update state 
+        wrongGuesses++;
+		// update DOM to reflect the new state
+        lossesEl.textContent = wrongGuesses;
+
+    }
+	//increment guesses
+    totalEl.textContent = correctGuesses + wrongGuesses;
+}
+
+// to-do:
+// -hide ball 
+// -show ball on guess 
+// -change trash-talk to reflect win/loss
 
 
 
