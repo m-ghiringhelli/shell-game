@@ -83,11 +83,14 @@ h2 {
 }
 
 .ball {
+    margin-bottom: 20px;
+}
+
+.reveal {
     height: 50px;
     width: 50px;
     background-color: rgb(218, 69, 69);
     border-radius: 50%;
-    margin-bottom: 20px;
     box-shadow: 3px -2px 3px rgba(0,0,0,0.45);
 }
 
