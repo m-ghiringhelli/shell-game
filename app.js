@@ -40,8 +40,13 @@ function handleShell(num, correctShell) {
 	//increment guesses
 	totalEl.textConent = correctGuesses + wrongGuesses;
 
+	//check if guessed shell is correct
 	if (num === correctShell) {
-		console.log('correct');
+		correctGuesses++;
+		console.log(correctGuesses);
+	} else {
+		wrongGuesses++;
+		console.log(wrongGuesses);
 	}
 }
   // use user input to update state 
