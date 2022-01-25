@@ -66,6 +66,11 @@ function handleShell(guess, correctShell) {
     }
 	//increment guesses
     totalEl.textContent = correctGuesses + wrongGuesses;
+    if (correctGuesses > wrongGuesses) {
+        messageEl.textContent = "Stop kid! I can't take much more!";
+    } else if (wrongGuesses > correctGuesses) {
+        messageEl.textContent = "Don't quit your day job! Wanna try again? I could always use more money.";
+    }
 }
 
 // to-do:
