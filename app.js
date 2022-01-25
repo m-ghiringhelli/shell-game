@@ -12,6 +12,7 @@ const lossesEl = document.getElementById('losses');
 const messageEl = document.getElementById('trash-talk');
 const totalEl = document.getElementById('total');
 
+//to keep container from shifting down on ball load
 const container = document.getElementById('shells-container');
 
 // let state
@@ -47,11 +48,9 @@ function reset() {
 function isCorrect(guess, correctShell) {
     //check if guessed shell is correct
     if (guess === correctShell) {
-        // use user input to update state 
         correct = true;
         correctGuesses++;
     } else {
-        // use user input to update state 
         correct = false;
         wrongGuesses++;
     }
