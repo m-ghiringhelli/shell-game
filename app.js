@@ -19,20 +19,31 @@ let wrongGuesses = 0;
 
 // set event listeners
 buttonOne.addEventListener('click', ()=> {
-    const correctShell = Math.ceil(Math.random() * 3);
-	handleShell(1, correctShell);
+    const whichShell = Math.ceil(Math.random() * 3);
+    handleShell(1, whichShell);
 });
 
 buttonTwo.addEventListener('click', ()=> {
-    const correctShell = Math.ceil(Math.random() * 3);
-	handleShell(2, correctShell);
+    const whichShell = Math.ceil(Math.random() * 3);
+    handleShell(2, whichShell);
 });
 
 buttonThree.addEventListener('click', ()=> {
-    const correctShell = Math.ceil(Math.random() * 3);
-	handleShell(3, correctShell);
+    const whichShell = Math.ceil(Math.random() * 3);
+    handleShell(3, whichShell);
 });
+
   // get user input
+function handleShell(num, correctShell) {
+	//reset ball state
+
+	//increment guesses
+	totalEl.textConent = correctGuesses + wrongGuesses;
+
+	if (num === correctShell) {
+		console.log('correct');
+	}
+}
   // use user input to update state 
   // update DOM to reflect the new state
 
