@@ -22,19 +22,19 @@ let correct = false;
 // set event listeners
 buttonOne.addEventListener('click', ()=> {
     const whichShell = Math.ceil(Math.random() * 3);
-    handleShell(1, whichShell);
+    isCorrect(1, whichShell);
     container.style.setProperty('margin-top', '0px');
 });
 
 buttonTwo.addEventListener('click', ()=> {
     const whichShell = Math.ceil(Math.random() * 3);
-    handleShell(2, whichShell);
+    isCorrect(2, whichShell);
     container.style.setProperty('margin-top', '0px');
 });
 
 buttonThree.addEventListener('click', ()=> {
     const whichShell = Math.ceil(Math.random() * 3);
-    handleShell(3, whichShell);
+    isCorrect(3, whichShell);
     container.style.setProperty('margin-top', '0px');
 });
 
@@ -44,7 +44,7 @@ function reset() {
     ballThree.classList.remove('reveal');
 }
 
-function handleShell(guess, correctShell) {
+function isCorrect(guess, correctShell) {
     //check if guessed shell is correct
     if (guess === correctShell) {
         // use user input to update state 
@@ -56,6 +56,16 @@ function handleShell(guess, correctShell) {
         wrongGuesses++;
     }
     displayResults(correct, correctShell);
+}
+
+function showBall(correctShell) {
+    if (correctShell === 1) {
+        ballOne.classList.add('reveal');           
+    } else if (correctShell === 2) {
+        ballTwo.classList.add('reveal');
+    } else {
+        ballThree.classList.add('reveal');
+    }
 }
 
 function displayResults(correct, correctShell) {
@@ -72,19 +82,17 @@ function displayResults(correct, correctShell) {
         messageEl.textContent = 'Nice try, sucker!';
     }
 
-    if (correctShell === 1) {
-        ballOne.classList.add('reveal');           
-    } else if (correctShell === 2) {
-        ballTwo.classList.add('reveal');
-    } else {
-        ballThree.classList.add('reveal');
-    }
+    showBall(correctShell);
+
     totalEl.textContent = correctGuesses + wrongGuesses;
         
-        // change response based on success
+    // change response based on success
     if ((correctGuesses - 2) > wrongGuesses) {
         messageEl.textContent = "Stop, kid! I can't take much more!";
     } else if ((wrongGuesses - 2) > correctGuesses) {
         messageEl.textContent = "Don't quit your day job! Wanna try again? I could always use more money.";
+    }
+    if ((wrongGuesses > 20) && (correctGuesses < 10)) {
+        messageEl.textContent = "Okay, I think you've had enough.";
     }
 }
