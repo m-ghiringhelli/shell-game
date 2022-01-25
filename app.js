@@ -43,27 +43,32 @@ function reset() {
     ballThree.classList.remove('reveal');
 }
 
-  // get user input
 function handleShell(guess, correctShell) {
-	//reset ball state
+    //reset ball state
     reset();
 
-	//check if guessed shell is correct
+    //check if guessed shell is correct
     if (guess === correctShell) {
-		// use user input to update state 
+        // use user input to update state 
         correctGuesses++;
+    } else {
+        // use user input to update state 
+        wrongGuesses++;
+    }
+    displayResults(guess, correctShell);
+}
+
+function displayResults(guess, correctShell) {
+    if (guess === correctShell) {
         // update DOM to reflect the new state
         winsEl.textContent = correctGuesses;
         messageEl.textContent = 'You got lucky.';
     } else {
-		// use user input to update state 
-        wrongGuesses++;
-		// update DOM to reflect the new state
+        // update DOM to reflect the new state
         lossesEl.textContent = wrongGuesses;
         messageEl.textContent = 'Nice try, sucker!';
     }
 
-    // update DOM to reflect the new state
     if (correctShell === 1) {
         ballOne.classList.add('reveal');           
     } else if (correctShell === 2) {
@@ -72,19 +77,11 @@ function handleShell(guess, correctShell) {
         ballThree.classList.add('reveal');
     }
     totalEl.textContent = correctGuesses + wrongGuesses;
-
-    // change response based on success
+        
+        // change response based on success
     if ((correctGuesses - 2) > wrongGuesses) {
         messageEl.textContent = "Stop, kid! I can't take much more!";
     } else if ((wrongGuesses - 2) > correctGuesses) {
         messageEl.textContent = "Don't quit your day job! Wanna try again? I could always use more money.";
     }
 }
-
-
-
-
-
-
-
-
