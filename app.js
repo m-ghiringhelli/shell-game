@@ -34,14 +34,15 @@ buttonThree.addEventListener('click', ()=> {
 });
 
   // get user input
-function handleShell(num, correctShell) {
+function handleShell(guess, correctShell) {
 	//reset ball state
 
 	//check if guessed shell is correct
-    if (num === correctShell) {
+    if (guess === correctShell) {
 		// use user input to update state 
         correctGuesses++;
 		// update DOM to reflect the new state
+        ballOne.classList.add('reveal');
         winsEl.textContent = correctGuesses;
 
     } else {
@@ -56,8 +57,8 @@ function handleShell(num, correctShell) {
 }
 
 // to-do:
-// -hide ball 
-// -show ball on guess 
+// -hide ball
+// -show ball on guess
 // -change trash-talk to reflect win/loss
 
 
