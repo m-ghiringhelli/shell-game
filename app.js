@@ -14,8 +14,24 @@ const messageEl = document.getElementById('trash-talk');
 const totalEl = document.getElementById('total');
 
 // let state
+let correctGuesses = 0;
+let wrongGuesses = 0;
 
-// set event listeners 
+// set event listeners
+buttonOne.addEventListener('click', ()=> {
+    const correctShell = Math.ceil(Math.random() * 3);
+	handleShell(1, correctShell);
+});
+
+buttonTwo.addEventListener('click', ()=> {
+    const correctShell = Math.ceil(Math.random() * 3);
+	handleShell(2, correctShell);
+});
+
+buttonThree.addEventListener('click', ()=> {
+    const correctShell = Math.ceil(Math.random() * 3);
+	handleShell(3, correctShell);
+});
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state
@@ -27,4 +43,3 @@ const totalEl = document.getElementById('total');
 
 
 
-  
