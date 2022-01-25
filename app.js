@@ -37,13 +37,17 @@ buttonThree.addEventListener('click', ()=> {
     container.style.setProperty('margin-top', '0px');
 });
 
-  // get user input
-function handleShell(guess, correctShell) {
-	//reset ball state
+function reset() {
     ballOne.classList.remove('reveal');
     ballTwo.classList.remove('reveal');
     ballThree.classList.remove('reveal');
+}
 
+  // get user input
+function handleShell(guess, correctShell) {
+	//reset ball state
+    reset();
+    
 	//check if guessed shell is correct
     if (guess === correctShell) {
 		// use user input to update state 
