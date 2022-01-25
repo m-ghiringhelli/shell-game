@@ -47,7 +47,7 @@ function reset() {
 function handleShell(guess, correctShell) {
 	//reset ball state
     reset();
-    
+
 	//check if guessed shell is correct
     if (guess === correctShell) {
 		// use user input to update state 
@@ -71,6 +71,7 @@ function handleShell(guess, correctShell) {
     } else {
         ballThree.classList.add('reveal');
     }
+    totalEl.textContent = correctGuesses + wrongGuesses;
 
     // change response based on success
     if ((correctGuesses - 2) > wrongGuesses) {
