@@ -6,7 +6,7 @@ body {
     --color2: white;
     --color3: white;
     --color4: white;
-    --color5: white;
+    --color5: rgba(255, 254, 254, 0.164);
     
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
         
@@ -27,8 +27,9 @@ body {
     --gutter: 30px;
     --footer-height: 25px;
     
-    font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    font-family: 'Sedgwick Ave', sans-serif;
+    background-color: #701600;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
 }
 
 main {
@@ -40,7 +41,7 @@ main {
 }
 
 section {
-    background-color: var(--color5);
+    /*background-color: var(--color5);*/
     max-width: 80%;
     display: flex;
     flex-direction: column;
@@ -50,7 +51,6 @@ section {
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: solid 2px var(--color1);
 }
 
 header {
@@ -63,8 +63,52 @@ header {
 
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: bold;
+}
+
+#shells-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.shell-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.add-margin-top {
+    margin-top: 50px;
+}
+
+.shell {
+    height: 300px;
+}
+
+.ball {
+    margin-bottom: 20px;
+}
+
+.reveal {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(218, 69, 69);
+    border-radius: 50%;
+    box-shadow: 3px -2px 3px rgba(0,0,0,0.45);
+}
+
+button {
+    width: 100px;
+}
+
+#results {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
 }
 
 .gutter-right {
