@@ -22,27 +22,32 @@ let correct = false;
 
 // set event listeners
 buttonOne.addEventListener('click', ()=> {
-    const whichShell = Math.ceil(Math.random() * 3);
-    isCorrect(1, whichShell);
-    container.style.setProperty('margin-top', '0px');
+    isCorrect(1, randomOneTwoThree());
+    adjustMargin();
 });
 
 buttonTwo.addEventListener('click', ()=> {
-    const whichShell = Math.ceil(Math.random() * 3);
-    isCorrect(2, whichShell);
-    container.style.setProperty('margin-top', '0px');
+    isCorrect(2, randomOneTwoThree());
+    adjustMargin();
 });
 
 buttonThree.addEventListener('click', ()=> {
-    const whichShell = Math.ceil(Math.random() * 3);
-    isCorrect(3, whichShell);
-    container.style.setProperty('margin-top', '0px');
+    isCorrect(3, randomOneTwoThree());
+    adjustMargin();
 });
 
 function reset() {
     ballOne.classList.remove('reveal');
     ballTwo.classList.remove('reveal');
     ballThree.classList.remove('reveal');
+}
+
+function randomOneTwoThree() {
+    return Math.ceil(Math.random() * 3);
+}
+
+function adjustMargin() {
+    container.style.setProperty('margin-top', '0px');
 }
 
 function isCorrect(guess, correctShell) {
